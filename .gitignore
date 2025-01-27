@@ -1,0 +1,13 @@
+lib/*.a
+lib/*.o
+
+!obj
+obj/*
+!obj/.gitkeep
+
+!out
+out/*
+!out/.gitkeep
+
+diff.txt
+note.txt
