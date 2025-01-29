@@ -13,7 +13,7 @@ make && make install
 To test the ASSERT macro, run:
 
 ```sh
-make test
+make && make install && make test
 ```
 
 ## Usage
@@ -61,6 +61,12 @@ Remember to include the CFLAGS `-ljrt` when compiling.
 -   `ASSERT_NOT_NULL(expected)`
 -   `ASSERT_PTR_EQUAL(expected, actual)`
 -   `ASSERT_PTR_NOT_EQUAL(expected, actual)`
+-   `ASSERT_GT(expected, actual)`
+-   `ASSERT_LT(expected, actual)`
+-   `ASSERT_GTE(expected, actual)`
+-   `ASSERT_LTE(expected, actual)`
+-   `ASSERT_MEM_EQUAL(expected, actual, size)`
+-   `ASSERT_MEM_NOT_EQUAL(expected, actual, size)`
 
 ## Formatter
 
