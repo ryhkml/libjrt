@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
 	<h1>Just Run Test</h1>
 </div>
 
@@ -76,4 +76,4 @@ _In Google i trust_
 
 ## TODO
 
--   Add new assertion ASSERT_GT, ASSERT_LT, ASSERT_GTE, ASSERT_LTE, ASSERT_MEM_EQUAL, ASSERT_MEM_NOT_EQUAL, **and** more
+-   [x] Add new assertion ASSERT_GT, ASSERT_LT, ASSERT_GTE, ASSERT_LTE, ASSERT_MEM_EQUAL, ASSERT_MEM_NOT_EQUAL, **and** more
