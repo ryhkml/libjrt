@@ -15,6 +15,14 @@ void test_not_null();
 void test_ptr_equal();
 void test_ptr_not_equal();
 
+void test_gt();
+void test_gte();
+void test_lt();
+void test_lte();
+
+void test_mem_equal();
+void test_mem_not_equal();
+
 int main(void) {
     printf("STR\n");
     just_run_test(test_str_equal);
@@ -35,6 +43,16 @@ int main(void) {
     printf("\nPOINTER\n");
     just_run_test(test_ptr_equal);
     just_run_test(test_ptr_not_equal);
+
+    printf("\nGREATER-LOWER\n");
+    just_run_test(test_gt);
+    just_run_test(test_lt);
+    just_run_test(test_gte);
+    just_run_test(test_lte);
+
+    printf("\nMEM\n");
+    just_run_test(test_mem_equal);
+    just_run_test(test_mem_not_equal);
 
     printf("\n");
 

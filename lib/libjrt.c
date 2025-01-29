@@ -1,4 +1,4 @@
-#include "../include/libjrt.h"
+#include "libjrt.h"
 
 TestSummary test_summary = {0, 0, 0};
 

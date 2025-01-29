@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra -std=c11 -fPIC -Ilib -MMD -MP
+CFLAGS = -Wall -Wextra -std=c11 -fPIC -Ilib -Iinclude -MMD -MP
 
 LDLIBS = -ljrt
 LDFLAGS = -Llib

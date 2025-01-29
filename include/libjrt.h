@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define COLOR_RED "\033[0;31m"
 #define COLOR_RESET "\033[0m"
@@ -135,6 +136,78 @@ int just_print_test_result();
         } else {                                                                                      \
             printf("[PASS] -> %s\n", __FILE__);                                                       \
         }                                                                                             \
+    } while (0)
+
+#define ASSERT_GT(expected, actual)                                                                                \
+    do {                                                                                                           \
+        counter_assert_run++;                                                                                      \
+        if (!((actual) > (expected))) {                                                                            \
+            fprintf(stderr, "%s[FAIL]%s Expected > %d, Actual: %d -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
+                    (actual), __FILE__, __LINE__);                                                                 \
+            current_test_failed = 1;                                                                               \
+        } else {                                                                                                   \
+            printf("[PASS] -> %s\n", __FILE__);                                                                    \
+        }                                                                                                          \
+    } while (0)
+
+#define ASSERT_LT(expected, actual)                                                                                \
+    do {                                                                                                           \
+        counter_assert_run++;                                                                                      \
+        if (!((actual) < (expected))) {                                                                            \
+            fprintf(stderr, "%s[FAIL]%s Expected < %d, Actual: %d -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
+                    (actual), __FILE__, __LINE__);                                                                 \
+            current_test_failed = 1;                                                                               \
+        } else {                                                                                                   \
+            printf("[PASS] -> %s\n", __FILE__);                                                                    \
+        }                                                                                                          \
+    } while (0)
+
+#define ASSERT_GTE(expected, actual)                                                                                \
+    do {                                                                                                            \
+        counter_assert_run++;                                                                                       \
+        if (!((actual) >= (expected))) {                                                                            \
+            fprintf(stderr, "%s[FAIL]%s Expected >= %d, Actual: %d -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
+                    (actual), __FILE__, __LINE__);                                                                  \
+            current_test_failed = 1;                                                                                \
+        } else {                                                                                                    \
+            printf("[PASS] -> %s\n", __FILE__);                                                                     \
+        }                                                                                                           \
+    } while (0)
+
+#define ASSERT_LTE(expected, actual)                                                                                \
+    do {                                                                                                            \
+        counter_assert_run++;                                                                                       \
+        if (!((actual) <= (expected))) {                                                                            \
+            fprintf(stderr, "%s[FAIL]%s Expected <= %d, Actual: %d -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
+                    (actual), __FILE__, __LINE__);                                                                  \
+            current_test_failed = 1;                                                                                \
+        } else {                                                                                                    \
+            printf("[PASS] -> %s\n", __FILE__);                                                                     \
+        }                                                                                                           \
+    } while (0)
+
+#define ASSERT_MEM_EQUAL(expected, actual, size)                                                                      \
+    do {                                                                                                              \
+        counter_assert_run++;                                                                                         \
+        if (memcmp((expected), (actual), (size)) != 0) {                                                              \
+            fprintf(stderr, "%s[FAIL]%s Expected memory at %p, Actual memory at %p, Size: %zu -> %s:%d\n", COLOR_RED, \
+                    COLOR_RESET, (void *)(expected), (void *)(actual), (size_t)(size), __FILE__, __LINE__);           \
+            current_test_failed = 1;                                                                                  \
+        } else {                                                                                                      \
+            printf("[PASS] -> %s\n", __FILE__);                                                                       \
+        }                                                                                                             \
+    } while (0)
+
+#define ASSERT_MEM_NOT_EQUAL(expected, actual, size)                                                                  \
+    do {                                                                                                              \
+        counter_assert_run++;                                                                                         \
+        if (memcmp((expected), (actual), (size)) == 0) {                                                              \
+            fprintf(stderr, "%s[FAIL]%s Expected memory at %p, Actual memory at %p, Size: %zu -> %s:%d\n", COLOR_RED, \
+                    COLOR_RESET, (void *)(expected), (void *)(actual), (size_t)(size), __FILE__, __LINE__);           \
+            current_test_failed = 1;                                                                                  \
+        } else {                                                                                                      \
+            printf("[PASS] -> %s\n", __FILE__);                                                                       \
+        }                                                                                                             \
     } while (0)
 
 #endif
