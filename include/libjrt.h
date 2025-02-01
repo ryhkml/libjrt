@@ -25,7 +25,7 @@ int just_print_test_result();
 #define ASSERT_STR_EQUAL(expected, actual)                                                                        \
     do {                                                                                                          \
         counter_assert_run++;                                                                                     \
-        if ((expected) != (actual)) {                                                                             \
+        if (strcmp((expected), (actual)) != 0) {                                                                  \
             fprintf(stderr, "%s[FAIL]%s Expected: %s, Actual: %s -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
                     (actual), __FILE__, __LINE__);                                                                \
             current_test_failed = 1;                                                                              \
@@ -37,7 +37,7 @@ int just_print_test_result();
 #define ASSERT_STR_NOT_EQUAL(expected, actual)                                                                    \
     do {                                                                                                          \
         counter_assert_run++;                                                                                     \
-        if ((expected) == (actual)) {                                                                             \
+        if (strcmp((expected), (actual)) == 0) {                                                                  \
             fprintf(stderr, "%s[FAIL]%s Expected: %s, Actual: %s -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
                     (actual), __FILE__, __LINE__);                                                                \
             current_test_failed = 1;                                                                              \
@@ -46,28 +46,28 @@ int just_print_test_result();
         }                                                                                                         \
     } while (0)
 
-#define ASSERT_INT_EQUAL(expected, actual)                                                                        \
-    do {                                                                                                          \
-        counter_assert_run++;                                                                                     \
-        if ((expected) != (actual)) {                                                                             \
-            fprintf(stderr, "%s[FAIL]%s Expected: %d, Actual: %d -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
-                    (actual), __FILE__, __LINE__);                                                                \
-            current_test_failed = 1;                                                                              \
-        } else {                                                                                                  \
-            printf("[PASS] -> %s\n", __FILE__);                                                                   \
-        }                                                                                                         \
+#define ASSERT_INT_EQUAL(expected, actual)                                                                \
+    do {                                                                                                  \
+        counter_assert_run++;                                                                             \
+        if ((expected) != (actual)) {                                                                     \
+            fprintf(stderr, "%s[FAIL]%s Expected: %lld, Actual: %lld -> %s:%d\n", COLOR_RED, COLOR_RESET, \
+                    (long long)(expected), (long long)(actual), __FILE__, __LINE__);                      \
+            current_test_failed = 1;                                                                      \
+        } else {                                                                                          \
+            printf("[PASS] -> %s\n", __FILE__);                                                           \
+        }                                                                                                 \
     } while (0)
 
-#define ASSERT_INT_NOT_EQUAL(expected, actual)                                                                    \
-    do {                                                                                                          \
-        counter_assert_run++;                                                                                     \
-        if ((expected) == (actual)) {                                                                             \
-            fprintf(stderr, "%s[FAIL]%s Expected: %d, Actual: %d -> %s:%d\n", COLOR_RED, COLOR_RESET, (expected), \
-                    (actual), __FILE__, __LINE__);                                                                \
-            current_test_failed = 1;                                                                              \
-        } else {                                                                                                  \
-            printf("[PASS] -> %s\n", __FILE__);                                                                   \
-        }                                                                                                         \
+#define ASSERT_INT_NOT_EQUAL(expected, actual)                                                            \
+    do {                                                                                                  \
+        counter_assert_run++;                                                                             \
+        if ((expected) == (actual)) {                                                                     \
+            fprintf(stderr, "%s[FAIL]%s Expected: %lld, Actual: %lld -> %s:%d\n", COLOR_RED, COLOR_RESET, \
+                    (long long)(expected), (long long)(actual), __FILE__, __LINE__);                      \
+            current_test_failed = 1;                                                                      \
+        } else {                                                                                          \
+            printf("[PASS] -> %s\n", __FILE__);                                                           \
+        }                                                                                                 \
     } while (0)
 
 #define ASSERT_TRUE(expected)                                                                                    \
