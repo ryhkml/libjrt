@@ -70,10 +70,10 @@ int just_print_test_result();
         }                                                                                                 \
     } while (0)
 
-#define ASSERT_TRUE(expected)                                                                                    \
+#define ASSERT_TRUE(actual)                                                                                      \
     do {                                                                                                         \
         counter_assert_run++;                                                                                    \
-        if (!(expected)) {                                                                                       \
+        if (!(actual)) {                                                                                         \
             fprintf(stderr, "%s[FAIL]%s Expected: true -> %s:%d\n", COLOR_RED, COLOR_RESET, __FILE__, __LINE__); \
             current_test_failed = 1;                                                                             \
         } else {                                                                                                 \
@@ -81,10 +81,10 @@ int just_print_test_result();
         }                                                                                                        \
     } while (0)
 
-#define ASSERT_FALSE(expected)                                                                                    \
+#define ASSERT_FALSE(actual)                                                                                      \
     do {                                                                                                          \
         counter_assert_run++;                                                                                     \
-        if ((expected)) {                                                                                         \
+        if ((actual)) {                                                                                           \
             fprintf(stderr, "%s[FAIL]%s Expected: false -> %s:%d\n", COLOR_RED, COLOR_RESET, __FILE__, __LINE__); \
             current_test_failed = 1;                                                                              \
         } else {                                                                                                  \
@@ -92,10 +92,10 @@ int just_print_test_result();
         }                                                                                                         \
     } while (0)
 
-#define ASSERT_NULL(expected)                                                                                    \
+#define ASSERT_NULL(actual)                                                                                      \
     do {                                                                                                         \
         counter_assert_run++;                                                                                    \
-        if ((expected) != NULL) {                                                                                \
+        if ((actual) != NULL) {                                                                                  \
             fprintf(stderr, "%s[FAIL]%s Expected: NULL -> %s:%d\n", COLOR_RED, COLOR_RESET, __FILE__, __LINE__); \
             current_test_failed = 1;                                                                             \
         } else {                                                                                                 \
@@ -103,10 +103,10 @@ int just_print_test_result();
         }                                                                                                        \
     } while (0)
 
-#define ASSERT_NOT_NULL(expected)                                                                                    \
+#define ASSERT_NOT_NULL(actual)                                                                                      \
     do {                                                                                                             \
         counter_assert_run++;                                                                                        \
-        if ((expected) == NULL) {                                                                                    \
+        if ((actual) == NULL) {                                                                                      \
             fprintf(stderr, "%s[FAIL]%s Expected: NOT NULL -> %s:%d\n", COLOR_RED, COLOR_RESET, __FILE__, __LINE__); \
             current_test_failed = 1;                                                                                 \
         } else {                                                                                                     \
