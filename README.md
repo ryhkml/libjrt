@@ -55,10 +55,10 @@ Remember to include the CFLAGS `-ljrt` when compiling.
 -   `ASSERT_STR_NOT_EQUAL(expected, actual)`
 -   `ASSERT_INT_EQUAL(expected, actual)`
 -   `ASSERT_INT_NOT_EQUAL(expected, actual)`
--   `ASSERT_TRUE(expected)`
--   `ASSERT_FALSE(expected)`
--   `ASSERT_NULL(expected)`
--   `ASSERT_NOT_NULL(expected)`
+-   `ASSERT_TRUE(actual)`
+-   `ASSERT_FALSE(actual)`
+-   `ASSERT_NULL(actual)`
+-   `ASSERT_NOT_NULL(actual)`
 -   `ASSERT_PTR_EQUAL(expected, actual)`
 -   `ASSERT_PTR_NOT_EQUAL(expected, actual)`
 -   `ASSERT_GT(expected, actual)`
